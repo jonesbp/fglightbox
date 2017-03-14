@@ -1,0 +1,46 @@
+.fg-lightbox-backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.fg-lightbox-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.fg-lightbox-contents {
+  background: #fff;
+  box-shadow: 0 0 25px #111;
+  -webkit-box-shadow: 0 0 25px #111;
+  -moz-box-shadow: 0 0 25px #111;
+  display: inline-block;
+  margin: 0 auto;
+  max-width: 940px;
+  padding: 0;
+  width: 66.66667%;
+
+  &.iframe {
+    height: 50%;
+  }
+
+  iframe {
+    border-width: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  img {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+}

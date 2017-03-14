@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FG Lightbox Demo</title>
+
+  <meta charset="utf-8">
+  
+  <script type="text/javascript" src="dist/FGLightbox.min.js"></script>
+  <link rel="stylesheet" href="dist/styles.css">
+
+  <style>
+    body {
+        margin:0; 
+        padding:0; 
+        background:#efefef;
+        text-align:center; /* used to center div in IE */
+    }
+    #wrapper {
+        width:600px; 
+        margin:0 auto; /*centers the div horizontally in all browsers (except IE)*/
+        background:#fff; 
+        text-align:left; /*resets text alignment from body tag */
+        border:1px solid #ccc;
+        border-top:none; 
+        padding:25px; 
+        /*Let's add some CSS3 styles, these will degrade gracefully in older browser and IE*/
+        border-radius:0 0 5px 5px;
+        -moz-border-radius:0 0 5px 5px;
+        -webkit-border-radius: 0 0 5px 5px; 
+        box-shadow:0 0 5px #ccc;
+        -moz-box-shadow:0 0 5px #ccc;
+        -webkit-box-shadow:0 0 5px #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<div id="wrapper">
+  <h1>FG Lightbox Demo</h1>
+    <ul>
+      <li>
+        <a href="https://upload.wikimedia.org/wikipedia/commons/d/d2/Bambara_nut_unearthed..JPG" class="lightbox-trigger fg-lightbox-image">
+          Picture 1
+        </a>
+      </li>
+      <li>
+        <a href="https://upload.wikimedia.org/wikipedia/commons/9/98/1210_Turnhout_029.JPG" class="lightbox-trigger fg-lightbox-image">
+          Picture 2
+        </a>
+      </li>
+      <li>
+        <a href="https://upload.wikimedia.org/wikipedia/commons/4/4b/Big_Bend_South_Rim_2008b.jpg" class="lightbox-trigger fg-lightbox-image">
+          Picture 3
+        </a>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <a href="http://tinaja.computer" class="lightbox-trigger fg-lightbox-iframe">iFrame 1</a>
+      </li>
+    </ul>
+</div>
+
+<script>
+
+var lightbox = new FGLightbox('.lightbox-trigger', 
+  {
+  }
+);
+</script>
+
+</body>
+</html>
