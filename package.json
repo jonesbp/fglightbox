@@ -1,6 +1,12 @@
 {
   "name": "fg-lightbox",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonesbp/fglightbox"
+  },
+  "author": "Brian Jones <brian@foamgarden.com> (http://brianjon.es)",
+  "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.24.0",
     "babel-npm": "0.0.1",
