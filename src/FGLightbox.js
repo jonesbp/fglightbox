@@ -68,6 +68,16 @@ function FGLightbox(selector, options = {}) {
     content.appendChild(iframe);
   }
 
+  function getParentAnchor(el) {
+    if (el.tagName.toLowerCase() === 'a') {
+      return el;
+    } else {
+      while ((el = el.parentElement) && (el.tagName.toLowerCase() != 'a'));
+
+      return el;
+    }
+  }
+
   function getTypeForClickTarget(target) {
     const classList = target.classList;
 
@@ -93,7 +103,7 @@ function FGLightbox(selector, options = {}) {
   }
 
   function handleLightboxClick(e) {
-    const target = e.target;
+    const target = getParentAnchor(e.target);
 
     e.preventDefault();
 
@@ -101,7 +111,7 @@ function FGLightbox(selector, options = {}) {
 
     clearContents();
 
-    switch (getTypeForClickTarget(e.target)) {
+    switch (getTypeForClickTarget(target)) {
       case 'image':
         fillWithImage(target.href);
         break;
