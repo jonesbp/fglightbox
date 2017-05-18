@@ -27,7 +27,11 @@ function FGLightbox(selector, options = {}) {
     closeButton.setAttribute('href', '#');
     closeButton.classList.add('fg-lightbox-close-button');
 
+    const innerWrapper = document.createElement('div');
+    innerWrapper.classList.add('fg-lightbox-inner-wrapper');
+
     content.appendChild(closeButton);
+    content.appendChild(innerWrapper);
     wrapper.appendChild(content);
     lightbox.appendChild(wrapper);
     body.appendChild(lightbox);
@@ -42,8 +46,9 @@ function FGLightbox(selector, options = {}) {
     content.classList.remove('image');
     content.classList.remove('iframe');
 
-    for (var child of content.children) {
-      if (! child.classList.contains('fg-lightbox-close-button')) {
+    for (let child of Array.from(content.children)) {
+      if (! child.classList.contains('fg-lightbox-close-button') &&
+          ! child.classList.contains('fg-lightbox-inner-wrapper')) {
         child.remove();
       }
     }
@@ -56,26 +61,28 @@ function FGLightbox(selector, options = {}) {
     image.addEventListener('load', function(e) {
       const lightbox = grabLightbox();
       const content = grabContentsForLightbox(lightbox);
+      const innerWrapper = content.querySelector('.fg-lightbox-inner-wrapper');
 
       content.classList.add('image');
 
       const imageEl = document.createElement('img');
       imageEl.src = e.target.src;
 
-      content.appendChild(imageEl);
+      innerWrapper.appendChild(imageEl);
     });
   }
 
   function fillWithIFrame(url) {
     const lightbox = grabLightbox();
     const content = grabContentsForLightbox(lightbox);
+    const innerWrapper = content.querySelector('.fg-lightbox-inner-wrapper');
 
     content.classList.add('iframe');
 
     const iframe = document.createElement('iframe');
     iframe.src = url;
 
-    content.appendChild(iframe);
+    innerWrapper.appendChild(iframe);
   }
 
   function getParentAnchor(el) {
