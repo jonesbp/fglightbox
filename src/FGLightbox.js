@@ -22,6 +22,12 @@ function FGLightbox(selector, options = {}) {
     const content = document.createElement('div');
     content.classList.add('fg-lightbox-contents');
 
+    const closeButton = document.createElement('a');
+    closeButton.innerHTML = "Close";
+    closeButton.setAttribute('href', '#');
+    closeButton.classList.add('fg-lightbox-close-button');
+
+    content.appendChild(closeButton);
     wrapper.appendChild(content);
     lightbox.appendChild(wrapper);
     body.appendChild(lightbox);
@@ -36,7 +42,11 @@ function FGLightbox(selector, options = {}) {
     content.classList.remove('image');
     content.classList.remove('iframe');
 
-    content.innerHTML = '';
+    for (var child of content.children) {
+      if (! child.classList.contains('fg-lightbox-close-button')) {
+        child.remove();
+      }
+    }
   }
 
   function fillWithImage(imageUrl) {
