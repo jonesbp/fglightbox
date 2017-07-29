@@ -1,12 +1,28 @@
 function FGLightbox(selector, options = {}) {
   this.lightbox = grabLightbox();
+  this.lightboxContents = this.lightbox.querySelector('.fg-lightbox-contents');
 
+  if (options.width) {
+    this.lightboxContents.style.width = options.width;
+  }
+  if (options.maxWidth) {
+    this.lightboxContents.style.maxWidth = options.maxWidth;
+  }
+  if (options.height) {
+    this.lightboxContents.style.height = options.height;
+  }
+  if (options.maxHeight) {
+    this.lightboxContents.style.maxHeight = options.maxHeight;
+  }
+  
   this.selector = selector;
 
   this.triggers = document.querySelectorAll(selector);
   this.triggers.forEach(trigger => {
     trigger.addEventListener('click', handleLightboxClick.bind(this));
   });
+  
+  
 
 
   function buildLightbox() {
